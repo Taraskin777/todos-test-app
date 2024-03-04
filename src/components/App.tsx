@@ -1,33 +1,37 @@
-import { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { TodoList } from "./TodoList"
+// import { Input } from "./Input"
 import { ITodo } from "../types/data"
+import { useAppSelector, useAppDispatch } from "../store/hooks"
+import { setNewTodo } from "../store/slice"
 import "./styles.css"
 
 const App: React.FC = () => {
-  const [value, setValue] = useState("")
   const [todos, setTodos] = useState<ITodo[]>([])
-  console.log(value)
+
+  const inputValue = useAppSelector((state) => state.todoData.newTodo)
+  const dispatch = useAppDispatch()
   const inputRef = useRef<HTMLInputElement>(null)
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    setValue(e.target.value)
+    dispatch(setNewTodo(e.target.value))
   }
 
   const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
     if (e.key === "Enter") addTodo()
   }
 
-  const addTodo = () => {
-    if (value) {
-      ;+setTodos([
+  const addTodo = (): void => {
+    if (inputValue) {
+      setTodos([
         ...todos,
         {
           id: Date.now(),
-          title: value,
+          title: inputValue,
           complete: false,
         },
       ])
-      setValue("")
+      dispatch(setNewTodo(""))
     }
   }
 
@@ -60,7 +64,7 @@ const App: React.FC = () => {
       <div>
         <h2>Please, add ToDo list below</h2>
         <input
-          value={value}
+          value={inputValue}
           onKeyDown={handleKeyDown}
           onChange={handleChange}
           ref={inputRef}
@@ -69,6 +73,7 @@ const App: React.FC = () => {
         <button className="add-todo" onClick={addTodo}>
           Add
         </button>
+        {/* <Input /> */}
       </div>
       <TodoList items={todos} removeTodo={removeTodo} toggleTodo={toggleTodo} />
     </div>

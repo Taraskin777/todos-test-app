@@ -19,6 +19,5 @@
         "react"
     ],
     "rules": {
-        "fixOnSave": "true"
     }
 }

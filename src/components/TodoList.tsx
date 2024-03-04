@@ -2,7 +2,6 @@ import React from "react"
 import { TodoItem } from "./TodoItem"
 import { ITodo } from "../types/data"
 
-
 interface ITodoListProps {
   items: ITodo[]
   toggleTodo: (id: number) => void
@@ -14,7 +13,7 @@ export const TodoList: React.FC<ITodoListProps> = (props: ITodoListProps) => {
 
   return (
     <div className="todo-list">
-      {items.map(todo => 
+      {items.map((todo) => 
         <TodoItem
           key={todo.id}
           {...todo}
