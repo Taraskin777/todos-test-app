@@ -10,15 +10,15 @@ interface Todo {
 interface TodosState {
   newTodo: string
   todos: Todo[]
-  searchTodo: string
   minLength: number
+  completed: Todo[]
 }
 
 const initialState: TodosState = {
   newTodo: "",
-  searchTodo: "",
   todos: [],
   minLength: 15,
+  completed: [],
 }
 
 const slice = createSlice({
@@ -51,10 +51,19 @@ const slice = createSlice({
         todo.complete = !todo.complete
       }
     },
+    filterByComplete: (state) => {
+      state.completed = state.todos.filter((todo) => todo.complete === true)
+    },
   },
 })
 
-export const { setNewTodo, setTodos, removeTodo, toggleTodo } = slice.actions
+export const {
+  setNewTodo,
+  setTodos,
+  removeTodo,
+  toggleTodo,
+  filterByComplete,
+} = slice.actions
 
 export const todoState = (state: RootState): object => state.todoData
 
