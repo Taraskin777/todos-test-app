@@ -15,11 +15,14 @@ export const TodoItem: React.FC<ITodo> = (props: ITodo) => {
     if (complete) {
       setStatus("Completed")
     } else setStatus("Uncompleted")
-    setShowStatus((prev) => !prev)
-    const timer = setTimeout(() => {
-      setShowStatus(false)
-    }, 3000)
-    return () => clearTimeout(timer)
+    if (!showStatus) {
+      setShowStatus(true)
+      const timer = setTimeout(() => {
+        setShowStatus(false)
+      }, 3000)
+      return () => clearTimeout(timer)
+    }
+    return () => {}
   }
 
   const toggleCheckbox = (): void => {
