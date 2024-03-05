@@ -1,23 +1,22 @@
 import React from "react"
 import { ITodo } from "../types/data"
+import { useAppDispatch } from "../store/hooks"
+import { toggleTodo, removeTodo } from "../store/slice"
 
-interface ITodoItem extends ITodo {
-  toggleTodo: (id: number) => void
-  removeTodo: (id: number) => void
-}
+export const TodoItem: React.FC<ITodo> = (props: ITodo) => {
+  const dispatch = useAppDispatch()
 
-export const TodoItem: React.FC<ITodoItem> = (props: ITodoItem) => {
-  const { id, title, complete, removeTodo, toggleTodo } = props
+  const { id, title, complete } = props
 
   return (
     <div className="todo-item">
       <input
         type="checkbox"
         checked={complete}
-        onChange={(): void => toggleTodo(id)}
+        onChange={() => dispatch(toggleTodo(id))}
       />
       <span>{title}</span>
-      <button onClick={(): void => removeTodo(id)}>x</button>
+      <button onClick={() => dispatch(removeTodo(id))}>x</button>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { useRef, useEffect } from "react"
 // import { ITodo } from "../types/data"
 import { useAppSelector, useAppDispatch } from "../store/hooks"
 import { setNewTodo, setTodos } from "../store/slice"
@@ -6,7 +6,7 @@ import "./styles.css"
 
 export const Input: React.FC = () => {
   const data = useAppSelector((state) => state.todoData)
-  const { newTodo } = data
+  const { newTodo, todos } = data
   const dispatch = useAppDispatch()
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -23,6 +23,12 @@ export const Input: React.FC = () => {
       dispatch(setTodos())
     }
   }
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus()
+    }
+  }, [todos])
 
   return (
     <>
