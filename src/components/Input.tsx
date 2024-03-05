@@ -1,7 +1,9 @@
 import React, { useRef, useEffect } from "react"
-// import { ITodo } from "../types/data"
 import { useAppSelector, useAppDispatch } from "../store/hooks"
 import { setNewTodo, setTodos } from "../store/slice"
+import Button from "@mui/material/Button"
+import TextField from "@mui/material/TextField"
+import "@fontsource/roboto/500.css"
 import "./styles.css"
 
 export const Input: React.FC = () => {
@@ -32,15 +34,29 @@ export const Input: React.FC = () => {
 
   return (
     <>
-      <input
+      <TextField
+        id="outlined-basic"
+        label="New todo"
+        variant="outlined"
         ref={inputRef}
         value={newTodo}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
+        size="small"
+        autoComplete="off"
+        inputProps={{
+          style: {
+            width: 400,
+            height: "25px",
+          },
+        }}
+        sx={{
+          marginBottom: "30px",
+        }}
       />
-      <button className="add-todo" onClick={addTodo}>
+      <Button variant="outlined" className="add-todo" onClick={addTodo}>
         Add
-      </button>
+      </Button>
     </>
   )
 }

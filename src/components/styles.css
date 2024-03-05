@@ -21,23 +21,21 @@ h4 {
 }
 
 .main>div>input {
-   width: 300px;
-   height: 30px;
    border-radius: 10px;
    margin-bottom: 30px;
-   padding: 5px;
-   border: solid 1px black;
+   padding: 10px;
+   border: 1px solid rgba(0, 0, 0, 0.187);
+   transition: border-color 0.3s;
 }
 
+
 .main .add-todo {
-   background-color: rgba(0, 0, 0, 0.169);
-   border-radius: 10px;
    margin-left: 20px;
-   height: 30px;
-   width: 70px;
-   border: 1px solid black;
+   height: 40px;
+   width: 90px;
    cursor: pointer;
 }
+
 
 .todo-list {
    color: rgba(0, 0, 0, 0.795);
@@ -50,6 +48,7 @@ h4 {
    justify-content: space-between;
    align-items: center;
    font-size: 20px;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.297);
 }
 
 .todo-item>input {
@@ -57,7 +56,7 @@ h4 {
    height: 20px;
 }
 
-.todo-item>span {
+.todo_title {
    width: 100%;
    text-align: start;
    padding-left: 10px;
@@ -72,15 +71,30 @@ h4 {
 
 .filter_btn {
    display: flex;
-   justify-content: center;
+   justify-content: space-between;
+   align-content: center;
    gap: 10px;
    margin-bottom: 20px;
 }
 
 .filter_btn>button {
    border-radius: 5px;
-   border: 1px solid black;
-   width: 90px;
-   height: 20px;
+   border: 1px solid rgba(0, 0, 0, 0.187);
+
+   height: 30px;
+   line-height: 35px;
    cursor: pointer;
+
+}
+
+
+.task_counter {
+   border: 1px solid rgba(0, 0, 0, 0.187);
+   height: 30px;
+   border-radius: 5px;
+   line-height: 30px;
+   font-size: 16px;
+   font-weight: 600;
+   padding: 0 10px 0 10px;
+   color: rgba(0, 0, 0, 0.735);
 }
