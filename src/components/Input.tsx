@@ -8,7 +8,7 @@ import "./styles.css"
 
 export const Input: React.FC = () => {
   const data = useAppSelector((state) => state.todoData)
-  const { newTodo, todos } = data
+  const { newTodo, todos, message } = data
   const dispatch = useAppDispatch()
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -34,6 +34,7 @@ export const Input: React.FC = () => {
 
   return (
     <>
+      <div className="warning">{message}</div>
       <TextField
         id="outlined-basic"
         label="New todo"

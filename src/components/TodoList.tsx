@@ -10,7 +10,8 @@ export const TodoList: React.FC = () => {
 
   const dispatch = useAppDispatch()
 
-  const todos = useAppSelector((state) => state.todoData.todos)
+  const data = useAppSelector((state) => state.todoData)
+  const {todos} = data
   const completedTodos = useAppSelector((state) => state.todoData.completed)
 
   const showCompleted = (): void => {

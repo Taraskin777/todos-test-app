@@ -12,13 +12,15 @@ interface TodosState {
   todos: Todo[]
   minLength: number
   completed: Todo[]
+  message: string
 }
 
 const initialState: TodosState = {
   newTodo: "",
   todos: [],
-  minLength: 15,
+  minLength: 25,
   completed: [],
+  message: "",
 }
 
 const slice = createSlice({
@@ -40,6 +42,9 @@ const slice = createSlice({
         }
         state.todos.push(newTodo)
         state.newTodo = ""
+        state.message = ""
+      } else {
+        state.message = `Max length is ${state.minLength} characters!`
       }
     },
     removeTodo: (state, action: PayloadAction<number>) => {

@@ -1,11 +1,10 @@
 import React from "react"
 import { TodoList } from "./TodoList"
 import { Input } from "./Input"
+
 import "./styles.css"
-import "@fontsource/roboto/500.css"
 
 const App: React.FC = () => {
-
   return (
     <div className="main">
       <div>
