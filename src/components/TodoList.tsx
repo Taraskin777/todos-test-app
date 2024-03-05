@@ -8,7 +8,7 @@ export const TodoList: React.FC = () => {
 
   const todos = useAppSelector((state) => state.todoData.todos)
 
-  const showComplited = (): void => {
+  const showCompleted = (): void => {
     setFilteredTodos(todos.filter((todo) => todo.complete === true))
   }
 
@@ -24,11 +24,10 @@ export const TodoList: React.FC = () => {
     <div className="todo-list">
       {todos.length > 0 && 
         <div>
-          <button onClick={showComplited}>Completed</button>
+          <button onClick={showCompleted}>Completed</button>
           <button onClick={showAllTodos}>All</button>
         </div>
       }
-
       {filteredTodos.map((todo) => 
         <TodoItem key={todo.id} {...todo} />
       )}
