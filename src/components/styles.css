@@ -24,7 +24,9 @@ h4 {
    width: 300px;
    height: 30px;
    border-radius: 10px;
-   margin-bottom: 50px;
+   margin-bottom: 30px;
+   padding: 5px;
+   border: solid 1px black;
 }
 
 .main .add-todo {
@@ -33,6 +35,8 @@ h4 {
    margin-left: 20px;
    height: 30px;
    width: 70px;
+   border: 1px solid black;
+   cursor: pointer;
 }
 
 .todo-list {
@@ -64,4 +68,19 @@ h4 {
    display: block;
    position: absolute;
    left: 65%;
+}
+
+.filter_btn {
+   display: flex;
+   justify-content: center;
+   gap: 10px;
+   margin-bottom: 20px;
+}
+
+.filter_btn>button {
+   border-radius: 5px;
+   border: 1px solid black;
+   width: 90px;
+   height: 20px;
+   cursor: pointer;
 }

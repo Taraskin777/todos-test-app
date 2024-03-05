@@ -23,9 +23,9 @@ export const TodoList: React.FC = () => {
   return (
     <div className="todo-list">
       {todos.length > 0 && 
-        <div>
-          <button onClick={showCompleted}>Completed</button>
+        <div className="filter_btn">
           <button onClick={showAllTodos}>All</button>
+          <button onClick={showCompleted}>Completed</button>
         </div>
       }
       {filteredTodos.map((todo) => 
