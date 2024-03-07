@@ -1,12 +1,12 @@
-import React from "react"
-import { TodoList } from "./TodoList"
-import { Input } from "./Input"
+import React from 'react'
+import { TodoList } from './todo-list'
+import { Input } from './input'
 
-import "./styles.css"
+import './styles.css'
 
 const App: React.FC = () => {
   return (
-    <div className="main">
+    <div className='main'>
       <div>
         <h2>Please, add ToDo list below</h2>
         <Input />
