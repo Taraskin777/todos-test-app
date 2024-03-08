@@ -35,7 +35,7 @@ export const Input: React.FC = () => {
   }, [todos])
 
   return (
-    <>
+    <div>
       <div className='warning'>{message}</div>
       <TextField
         id='outlined-basic'
@@ -60,6 +60,6 @@ export const Input: React.FC = () => {
       <Button variant='outlined' className='add-todo' onClick={addTodo}>
         Add
       </Button>
-    </>
+    </div>
   )
 }

@@ -17,7 +17,7 @@ h4 {
 }
 
 .main h2 {
-   margin: 50px;
+   margin: 50px 0 10px 0;
 }
 
 .main>div>input {
@@ -80,11 +80,9 @@ h4 {
 .filter_btn>button {
    border-radius: 5px;
    border: 1px solid rgba(0, 0, 0, 0.187);
-
    height: 30px;
    line-height: 35px;
    cursor: pointer;
-
 }
 
 
@@ -100,10 +98,8 @@ h4 {
 }
 
 .warning {
-   position: absolute;
-   right: 50%;
-   transform: translateX(50%);
-   top: 13%;
+   display: block;
+   height: 30px;
    color: red;
    font-weight: 400;
 }
