@@ -5,35 +5,26 @@ import { toggleTodo, removeTodo } from '../store/slice'
 import Checkbox from '@mui/material/Checkbox'
 import IconButton from '@mui/material/IconButton'
 import DeleteIcon from '@mui/icons-material/Delete'
+import { motion } from 'framer-motion'
 
 export const TodoItem: React.FC<ITodo> = (props: ITodo) => {
-  // const [status, setStatus] = useState<string>("")
-  // const [showStatus, setShowStatus] = useState<boolean>(false)
-
   const dispatch = useAppDispatch()
 
   const { id, title, complete } = props
-
-  // const handleTaskStatus = (): (() => void) => {
-  //   if (complete) {
-  //     setStatus("Completed")
-  //   } else setStatus("Uncompleted")
-  //   if (!showStatus) {
-  //     setShowStatus(true)
-  //     const timer = setTimeout(() => {
-  //       setShowStatus(false)
-  //     }, 3000)
-  //     return () => clearTimeout(timer)
-  //   }
-  //   return () => {}
-  // }
 
   const toggleCheckbox = (): void => {
     dispatch(toggleTodo(id))
   }
 
   return (
-    <div className='todo-item'>
+    <motion.div
+      key={id}
+      initial={{ 'opacity': 0 }}
+      animate={{ 'opacity': 1 }}
+      exit={{ 'opacity': 0 }}
+      transition={{ 'duration': 0.5 }}
+      className='todo-item'
+    >
       <Checkbox checked={complete} onChange={toggleCheckbox} />
       <span onClick={toggleCheckbox} className='todo_title'>
         {title}
@@ -42,6 +33,6 @@ export const TodoItem: React.FC<ITodo> = (props: ITodo) => {
         <DeleteIcon />
       </IconButton>
       {/* {showStatus && <span className="status">{status}</span>} */}
-    </div>
+    </motion.div>
   )
 }
