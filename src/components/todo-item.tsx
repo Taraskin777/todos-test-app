@@ -32,7 +32,6 @@ export const TodoItem: React.FC<ITodo> = (props: ITodo) => {
       <IconButton onClick={() => dispatch(removeTodo(id))}>
         <DeleteIcon />
       </IconButton>
-      {/* {showStatus && <span className="status">{status}</span>} */}
     </motion.div>
   )
 }
