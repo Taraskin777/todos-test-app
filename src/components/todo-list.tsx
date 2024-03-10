@@ -4,6 +4,7 @@ import { useAppSelector, useAppDispatch } from '../store/hooks'
 import { ITodo } from '../types/data'
 import { filterByComplete } from '../store/slice'
 import Button from '@mui/material/Button'
+import { AnimatePresence } from 'framer-motion'
 
 export const TodoList: React.FC = () => {
   const [filteredTodos, setFilteredTodos] = useState<ITodo[]>([])
@@ -52,7 +53,9 @@ export const TodoList: React.FC = () => {
           </div>
         </div>
       }
-      {filteredTodos.map((todo) => <TodoItem key={todo.id} {...todo} />)}
+      <AnimatePresence>
+        {filteredTodos.map((todo) => <TodoItem key={todo.id} {...todo} />)}
+      </AnimatePresence>
     </div>
   )
 }
