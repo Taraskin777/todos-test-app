@@ -18,11 +18,10 @@ export const TodoItem: React.FC<ITodo> = (props: ITodo) => {
 
   return (
     <motion.div
-      key={id}
       initial={{ 'opacity': 0 }}
       animate={{ 'opacity': 1 }}
       exit={{ 'opacity': 0 }}
-      transition={{ 'duration': 0.5 }}
+      transition={{ 'duration': 0.3 }}
       className='todo-item'
     >
       <Checkbox checked={complete} onChange={toggleCheckbox} />
