@@ -22,6 +22,10 @@ export const TodoList: React.FC = () => {
     setFilteredTodos(todos)
   }
 
+  const showCurrent = (): void => {
+    setFilteredTodos(todos.filter((todo) => todo.complete === false))
+  }
+
   useEffect(() => {
     setFilteredTodos(todos)
     dispatch(filterByComplete())
@@ -30,17 +34,22 @@ export const TodoList: React.FC = () => {
   return (
     <div className='todo-list'>
       {todos.length > 0 &&
-        <div className='filter_btn'>
-          <Button onClick={showAllTodos} variant='contained'>
+        <div>
+          <div className='filter_btn'>
+            <Button onClick={showAllTodos} variant='contained'>
             All
-          </Button>
-          <Button onClick={showCompleted} variant='contained'>
+            </Button>
+            <Button onClick={showCompleted} variant='contained'>
             Completed
-          </Button>
-          <span className='task_counter'>All tasks: {todos.length}</span>
-          <span className='task_counter'>
+            </Button>
+            <Button onClick={showCurrent} variant='contained'>Current</Button>
+          </div>
+          <div className='task_counter_wrapper'>
+            <span className='task_counter'>All tasks: {todos.length}</span>
+            <span className='task_counter'>
             Completed tasks: {completedTodos.length}
-          </span>
+            </span>
+          </div>
         </div>
       }
       {filteredTodos.map((todo) => <TodoItem key={todo.id} {...todo} />)}
